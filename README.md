@@ -9,6 +9,13 @@ Caterpillar Rancher is a casual snake-like mobile game for Android. I made this 
 ## :art:
 <img alt="Gameplay Sreenshot" src="Screenshots/screenshot_action.png" style="width:300px;display: block;margin-left:auto;margin-right:auto;" />
 
+## Installation
+- Clone the repo
+- Open the project folder in unity hub
+- Install Unity Editor version 2021.3.11f1 (the version this project was made in)
+- Make sure your target platform is set to Android under `Build Settings`, or the Google Play Games won't load/compile Properly. You may have to open the project in safe mode to correct this.
+- Open all scenes, then unload all but `PersistentScene`
+
 ## Gameplay
 You guide your caterpillar around a 7X12 grid by placing arrows in its path. Press the square one which you want to place an arrow, and then swipe in the direction you want your bug to go when it lands on the arrow. You can place up to two arrows at once.
 

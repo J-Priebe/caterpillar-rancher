@@ -6,6 +6,7 @@ public class CameraCrop : MonoBehaviour {
     Camera _camera;
 
     void Start () {
+        Application.targetFrameRate = 60;
         _camera = GetComponent<Camera>();
         UpdateCrop();
     }

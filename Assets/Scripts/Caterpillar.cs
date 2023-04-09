@@ -60,6 +60,10 @@ public class Caterpillar : SingletonMonoBehaviour<Caterpillar>
 
     void Update()
     {
+        if (TutorialManager.Instance.isWaitingForTutorialPrompt)
+        {
+            return;
+        }
         if (IsHeadAtTarget() & !isWinAnimationActive)
         {
             UpdateHeadTarget();
@@ -208,6 +212,7 @@ public class Caterpillar : SingletonMonoBehaviour<Caterpillar>
                 Vector3Int cell = grid.WorldToCell(tailLastTarget);
 
                 // a thought.. do we really need to prevent spawning under the body? or just the head?
+
                 // when caterpillar first spawns, some segments are OOB.. don't try to mark them as occupied
                 if (
                     cell.x < Constants.tilesX

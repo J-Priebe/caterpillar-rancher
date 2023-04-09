@@ -76,6 +76,11 @@ crashlytics-build.properties
 /.vscode
 /[Uu]ser[Ss]ettings
 
+/.vsconfig
+/.editorconfig
+
 **/.DS_Store
 
 **/*.code-workspace
+
+**/*.keystore
