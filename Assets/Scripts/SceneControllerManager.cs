@@ -9,7 +9,7 @@ public class SceneControllerManager : SingletonMonoBehaviour<SceneControllerMana
     private bool isFading;
 
     [SerializeField]
-    private float fadeDuration = 0.5f;
+    private float fadeDuration;
 
     [SerializeField]
     private CanvasGroup faderCanvasGroup = null;
