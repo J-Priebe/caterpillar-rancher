@@ -53,5 +53,6 @@ If you have an issue, idea, question, or anything at all, please create an Issue
 
 - [Music on Unity Asset Store](https://assetstore.unity.com/packages/audio/music/free-music-for-puzzle-games-152395)
 - [SFX on Unity Asset Store](https://assetstore.unity.com/packages/audio/sound-fx/cartoon-games-sound-effects-211274)
+  - *Note*: SFX are not included in this repo as I do not have the rights to distribute them. The audio mixer and scripts are in place, but you'll have to add your own sounds.
 - [Art by the Talented pabsoher on Fiverr](https://www.fiverr.com/pabsoher?source=gig_cards&referrer_gig_slug=make-pixel-art-tilesets-for-your-videogame&ref_ctx_id=abd76c44119c534da223969f9c24adfd&imp_id=c36620f7-92d0-48dc-936f-430dae5f72f1)
 - [Udemy course I started learning gamdev with](https://www.udemy.com/course/unity-2d-game-developer-course-farming-rpg/)
