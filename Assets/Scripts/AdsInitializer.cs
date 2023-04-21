@@ -15,11 +15,7 @@ public class AdsInitializer : SingletonMonoBehaviour<AdsInitializer>, IUnityAdsI
     protected override void Awake()
     {
         base.Awake();
-        if (Advertisement.isInitialized)
-        {
-            Debug.Log("Advertisement already Initialized");
-        }
-        else
+        if (!Advertisement.isInitialized)
         {
             InitializeAds();
         }
@@ -50,7 +46,7 @@ public class AdsInitializer : SingletonMonoBehaviour<AdsInitializer>, IUnityAdsI
 
     public void HideBannerAd()
     {
-        Debug.Log("Hiding banner");
+        // Debug.Log("Hiding banner");
         Advertisement.Banner.Hide();
     }
 
@@ -65,11 +61,9 @@ public class AdsInitializer : SingletonMonoBehaviour<AdsInitializer>, IUnityAdsI
         yield return new WaitUntil(() => Advertisement.isInitialized);
         if (Advertisement.Banner.isLoaded)
         {
-            Debug.Log("Banner already loaded. showing");
             OnBannerLoaded();
         }else
         {
-            Debug.Log("Banner not yet loaded.");
             LoadBannerAd(); // which then calls OnBannerLoaded
         }
     }
@@ -113,19 +107,11 @@ public class AdsInitializer : SingletonMonoBehaviour<AdsInitializer>, IUnityAdsI
         isShowingAd = true;
     }
 
-    // TODO need to make sure we can return smoothly if they hit play again
-    public void OnUnityAdsShowClick(string placementId)
-    {
-        Debug.Log("OnUnityAdsShowClick");
-    }
-
-
     // this seems to be bugged and not triggering with 3.7
     // try toggling test mode on/off
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
-        Debug.Log("OnUnityAdsShowComplete " + showCompletionState);
-        isShowingAd = false;
+        // isShowingAd = false;
     }
 
     // so countdown doesn't start while we're showing ad
@@ -137,17 +123,18 @@ public class AdsInitializer : SingletonMonoBehaviour<AdsInitializer>, IUnityAdsI
 
     void OnBannerLoaded()
     {
-        // TODO check this actually refreshes to new ads
-        Debug.Log("Banner loaded");
         Advertisement.Banner.Show("Banner_Android");
     }
 
     void OnBannerError(string message)
     {
         // usually it's a fail to fill :(
-        Debug.Log("Banner failed to load: " + message);
+        Debug.LogError("Banner failed to load: " + message);
         // an empty banner must be destroyed, or we'll get "already loaded" errors
         Advertisement.Banner.Hide(true);
     }
 
+    public void OnUnityAdsShowClick(string placementId)
+    {
+    }
 }

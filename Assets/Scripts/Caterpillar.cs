@@ -6,7 +6,7 @@ using System;
 [RequireComponent(typeof(AudioSource))]
 public class Caterpillar : SingletonMonoBehaviour<Caterpillar>
 {
-    private float baseSpeed = 2f;
+    private float baseSpeed = 2.5f;
 
     private float speed;
 
@@ -373,10 +373,10 @@ public class Caterpillar : SingletonMonoBehaviour<Caterpillar>
         // +0.2f every 2 levels before 16
         float newSpeed = baseSpeed + 0.2f * (Mathf.Min(level - 1, 16) / 2);
 
-        // +0.1f every 2 levels until 30 (when food is maxed)
+        // +0.15f every 2 levels until 30 (when food is maxed)
         if (level > 16)
         {
-            newSpeed += 0.1f * ((Mathf.Min(level - 1, 30) - 16) / 2);
+            newSpeed += 0.15f * ((Mathf.Min(level - 1, 30) - 16) / 2);
         }
 
         // 0.1f every level thereafter
