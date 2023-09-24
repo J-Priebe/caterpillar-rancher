@@ -201,6 +201,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         // #endif
 
         LevelManager.Instance.HandleEndGame();
+        if (!(
+            TutorialManager.Instance.tutorialState == TutorialState.UntilFirstCrash 
+            || TutorialManager.Instance.tutorialState == TutorialState.Complete
+            ))
+        {
+            TutorialManager.Instance.ResetToStart();
+        }
         SceneControllerManager.Instance.LoadHomeScene();
         // gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);

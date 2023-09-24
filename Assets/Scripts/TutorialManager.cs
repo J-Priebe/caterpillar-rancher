@@ -25,8 +25,6 @@ public class TutorialManager : SingletonMonoBehaviour<TutorialManager>
         get { return _tutorialState; }
         set {
             _tutorialState = value;
-            // Debug.Log("Setting tutorial state to " + value);
-
             // only save at checkpoints that won't break the tutorial
             // e.g., we can't save while forcing to place an arrow,
             // because on the next game the position won't make sense
@@ -167,6 +165,17 @@ public class TutorialManager : SingletonMonoBehaviour<TutorialManager>
         // load tutorial state from playerprefs
         int savedState = Int32.Parse(PlayerPrefs.GetString("tutorialState", "0"));
         _tutorialState = (TutorialState) savedState;
-        // Debug.Log("Opening Tutorial state set to " + _tutorialState);
+    }
+
+    public void ResetToStart()
+    {
+        // When game exits in the middle of the tutorial, we need to disable
+        // all the prompts and set back to starting stage
+        tutorialState = TutorialState.Start;
+        CloseTutorialPrompt();
+        swipeLeftHelper.SetActive(false);
+        swipeDownHelper.SetActive(false);
+        swipeUpHelper.SetActive(false);
+        swipeRightHelper.SetActive(false);
     }
 }

@@ -40,12 +40,10 @@ public class SettingsManager : MonoBehaviour
 
         skipTutorial = TutorialManager.Instance.tutorialState == TutorialState.Complete;
         skipTutorialToggle.SetIsOnWithoutNotify(skipTutorial);
-
         // when we set the value the handlers will get called and update the mixers
         sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0.75f);
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.75f);
     }
-
 
     // attentuation is logarithmic; convert it from a linear slider value
     // see https://johnleonardfrench.com/the-right-way-to-make-a-volume-slider-in-unity-using-logarithmic-conversion/
@@ -63,16 +61,16 @@ public class SettingsManager : MonoBehaviour
 
     public void ToggleTutorialSkip()
     {
-        // cn only toggle between start over and completed, no intermediates
-        if (TutorialManager.Instance.tutorialState == TutorialState.Start)
-        {
-            TutorialManager.Instance.tutorialState = TutorialState.Complete;
-            skipTutorial = true;
-        }
-        else
+        // can only toggle between start over and completed, no intermediates
+        if (TutorialManager.Instance.tutorialState == TutorialState.Complete)
         {
             TutorialManager.Instance.tutorialState = TutorialState.Start;
             skipTutorial = false;
+        }
+        else
+        {
+            TutorialManager.Instance.tutorialState = TutorialState.Complete;
+            skipTutorial = true;
         }
     }
 }

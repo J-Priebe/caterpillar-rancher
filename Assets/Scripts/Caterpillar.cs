@@ -6,7 +6,7 @@ using System;
 [RequireComponent(typeof(AudioSource))]
 public class Caterpillar : SingletonMonoBehaviour<Caterpillar>
 {
-    private float baseSpeed = 2.5f;
+    private float baseSpeed = 2.2f;
 
     private float speed;
 
